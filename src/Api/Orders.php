@@ -152,6 +152,7 @@ class Orders extends ApiClient
         string $orderState = "None",
         string $paymentStatus = "Paid",
         string $paidDate = "Today",
+        float $discount = 0,
         array $notes = []
     ){
         $order = [
@@ -195,6 +196,9 @@ class Orders extends ApiClient
                 'Company' =>  $billingCompanyName,
                 'PhoneNumber' =>  $billingPhoneNumber,
                 'MatchCountryCode' =>  $billingIso3CountryCode
+            ],
+            'TotalsInfo' => [
+                'TotalDiscount' => $discount, //add a global product discount to order total
             ],
 
             // items
